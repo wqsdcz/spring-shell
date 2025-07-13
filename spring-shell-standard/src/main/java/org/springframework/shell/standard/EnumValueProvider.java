@@ -25,6 +25,7 @@ import org.springframework.shell.CompletionProposal;
 import org.springframework.shell.command.CommandOption;
 
 /**
+ * 用于自动补 全枚举类型参数 的值。
  * A {@link ValueProvider} that knows how to complete values for {@link Enum} typed parameters.
  * @author Eric Bottard
  */

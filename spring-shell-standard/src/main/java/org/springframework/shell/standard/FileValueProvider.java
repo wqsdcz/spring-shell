@@ -31,6 +31,7 @@ import org.springframework.shell.CompletionProposal;
 import static java.nio.file.FileVisitOption.FOLLOW_LINKS;
 
 /**
+ * 用于自动补全 本地{@link File}的名称（无论是绝对的还是相对于当前工作目录的）。
  * A {@link ValueProvider} that can populate names of local {@link File}s, either absolute or relative to the
  * current working directory.
  *

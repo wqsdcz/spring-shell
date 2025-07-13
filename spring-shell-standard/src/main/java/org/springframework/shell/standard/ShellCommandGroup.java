@@ -23,6 +23,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 在package或class级别，用于指明shell命令的默认分组。
+ * 默认值是类名。
  * Used to indicate the default group of shell commands, either at the package or class level.
  *
  * @author Eric Bottard

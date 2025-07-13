@@ -19,6 +19,7 @@ import org.springframework.aot.hint.RuntimeHints;
 import org.springframework.aot.hint.RuntimeHintsRegistrar;
 
 /**
+ * Shell标准资源 的 {@link RuntimeHintsRegistrar}
  * {@link RuntimeHintsRegistrar} for Shell Standard resources.
  *
  * @author Janne Valkealahti

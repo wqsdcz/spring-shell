@@ -24,6 +24,7 @@ import org.springframework.shell.CompletionProposal;
 import org.springframework.shell.command.CommandCatalog;
 
 /**
+ * 用于 自动补全shell命令名称 的{@link ValueProvider}
  * A {@link ValueProvider} that can be used to auto-complete names of shell commands.
  *
  * @author Eric Bottard

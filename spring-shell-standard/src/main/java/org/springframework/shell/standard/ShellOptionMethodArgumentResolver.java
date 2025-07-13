@@ -30,6 +30,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 /**
+ * {@link ShellOption @ShellOption} 参数的 确定器。
  * Resolver for {@link ShellOption @ShellOption} arguments.
  *
  * @author Janne Valkealahti

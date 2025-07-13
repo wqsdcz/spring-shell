@@ -15,6 +15,7 @@
  */
 
 /**
+ * Shell命令分组，Shell命令方法、Shell命令选项、Shell命令的可用性、包含Shell命令方法的Bean。
  * Contains infrastructure for describing commands with the "new" preferred Spring Shell programming model.
  *
  * @author Eric Bottard

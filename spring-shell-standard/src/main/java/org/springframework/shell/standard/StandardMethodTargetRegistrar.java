@@ -60,6 +60,9 @@ import org.springframework.util.StringUtils;
  * applications, resolves methods annotated with {@link ShellMethod} on
  * {@link ShellComponent} beans.
  *
+ * 在新的shell应用程序中，{@link MethodTargetRegistrar}的标准实现会
+ * 解析带有{@link ShellComponent}的bean中带有{@link ShellMethod}注解的方法。
+ *
  * @author Eric Bottard
  * @author Florent Biville
  * @author Camilo Gonzalez
@@ -79,11 +82,13 @@ public class StandardMethodTargetRegistrar implements MethodTargetRegistrar {
 
 	@Override
 	public void register(CommandCatalog registry) {
+		// 查询所有添加了 @ShellComponent 的Bean。
 		Map<String, Object> commandBeans = applicationContext.getBeansWithAnnotation(ShellComponent.class);
 		log.debug("Found commandBeans to register {}", commandBeans);
 		for (Object bean : commandBeans.values()) {
 			Class<?> clazz = bean.getClass();
 			ReflectionUtils.doWithMethods(clazz, method -> {
+				// 获取方法中，@ShellMethod的参数信息。
 				ShellMethod shellMapping = method.getAnnotation(ShellMethod.class);
 				String[] keys = shellMapping.key();
 				if (keys.length == 0) {
@@ -96,14 +101,14 @@ public class StandardMethodTargetRegistrar implements MethodTargetRegistrar {
 				Supplier<Availability> availabilityIndicator = findAvailabilityIndicator(keys, bean, method);
 
 				Builder builder = commandRegistrationBuilderSupplier.get()
-					.command(key)
-					.group(group)
-					.description(shellMapping.value())
-					.interactionMode(shellMapping.interactionMode())
-					.availability(availabilityIndicator);
+					.command(key)  // 命令的名称
+					.group(group)  // 命令组的名称
+					.description(shellMapping.value())   // 描述
+					.interactionMode(shellMapping.interactionMode())  // 命令的交互模式
+					.availability(availabilityIndicator);   // 命令的可用性指示器
 
 				for (int i = 1; i < keys.length; i++) {
-					builder.withAlias().command(keys[i]).group(group);
+					builder.withAlias().command(keys[i]).group(group);  // 添加别名
 				}
 
 				InvocableHandlerMethod ihm = new InvocableHandlerMethod(bean, method);
@@ -119,10 +124,10 @@ public class StandardMethodTargetRegistrar implements MethodTargetRegistrar {
 								String stripped = StringUtils.trimLeadingCharacter(o, '-');
 								log.debug("Registering o='{}' stripped='{}'", o, stripped);
 								if (o.length() == stripped.length() + 2) {
-									longNames.add(stripped);
+									longNames.add(stripped);  // --param
 								}
 								else if (o.length() == stripped.length() + 1 && stripped.length() == 1) {
-									shortNames.add(stripped.charAt(0));
+									shortNames.add(stripped.charAt(0)); // -p
 								}
 								else if (o.length() == stripped.length()) {
 									if ("--".equals(shellMapping.prefix())) {
@@ -215,7 +220,7 @@ public class StandardMethodTargetRegistrar implements MethodTargetRegistrar {
 					}
 				}
 
-				builder.withTarget().method(bean, method);
+				builder.withTarget().method(bean, method);  //命令的处理逻辑
 
 				ObjectProvider<Terminal> terminal = this.applicationContext.getBeanProvider(Terminal.class);
 				// TODO: feels a bit fishy to return null terminal but for now it's mostly to pass tests as it should not fail
@@ -235,6 +240,14 @@ public class StandardMethodTargetRegistrar implements MethodTargetRegistrar {
 	 *     <li>explicit annotation at the package level</li>
 	 *     <li>implicit from the class name</li>
 	 * </ul>
+	 *
+	 * 从如下地方，按如下顺序获取【分组的名称】：<ul>
+	 *     <li>在method级的注释显式指定</li>
+	 *     <li>在class级的注释显式指定</li>
+	 *     <li>在package级的注释显式指定</li>
+	 *     <li>隐式的class name</li>
+	 * </ul>
+	 *
 	 */
 	private String getOrInferGroup(Method method) {
 		ShellMethod methodAnn = AnnotationUtils.getAnnotation(method, ShellMethod.class);
@@ -255,6 +268,16 @@ public class StandardMethodTargetRegistrar implements MethodTargetRegistrar {
 	}
 
 	/**
+	 * 为给定的命令方法 尝试建立 一个 可用性指示器（一个返回 {@link Availability} 的无参方法）。
+	 * 以下是尝试顺序（为方法{@literal m}）：
+	 *
+	 * <ol>
+	 * <li>如果{@literal m}带有{@literal @}{@link ShellMethodAvailability}注释，它的值应该是方法名。</li>
+	 * <li>查找一个名为{@literal "<m>Availability"}的方法。</li>
+	 * <li>否则，如果某个方法{@literal ai}返回{@link Availability}并且不带参数，标注了{@literal @}{@link ShellMethodAvailability}并且注释一个{@literal commandKeys}值，
+	 * 则选择这个方法</li>
+	 * </ol>
+	 *
 	 * Tries to locate an availability indicator (a no-arg method that returns
 	 * {@link Availability}) for the given command method. The following are tried in order
 	 * for method {@literal m}:

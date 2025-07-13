@@ -25,6 +25,7 @@ import org.springframework.aot.hint.annotation.Reflective;
 import org.springframework.shell.context.InteractionMode;
 
 /**
+ * 用于标记方法，表示该方法可通过Spring Shell调用的方法。
  * Used to mark a method as invokable via Spring Shell.
  *
  * @author Eric Bottard

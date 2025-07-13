@@ -27,6 +27,9 @@ import org.springframework.shell.AvailabilityReflectiveProcessor;
 import org.springframework.stereotype.Component;
 
 /**
+ * 添加该注解的类可能含有shell方法（添加了{@link ShellMethod}），这些shell方法可以被shell通过反射方式调用。
+ * <p>这个注解是{@link Component}的特化注解。</p>
+ *
  * Indicates that an annotated class may contain shell methods (themselves annotated with {@link ShellMethod}) that
  * is,
  * methods that may be invoked reflectively by the shell.

@@ -33,6 +33,7 @@ import org.springframework.shell.style.TemplateExecutor;
 import org.springframework.shell.style.ThemeResolver;
 
 /**
+ * 帮助构建shell组件的基类
  * Base class helping to build shell components.
  *
  * @author Janne Valkealahti

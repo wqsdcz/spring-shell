@@ -21,6 +21,7 @@ import org.springframework.shell.CompletionContext;
 import org.springframework.shell.CompletionProposal;
 
 /**
+ * 在TAB补全期间查询实现此接口的bean，以收集参数的可能值。
  * Beans implementing this interface are queried during TAB completion to gather
  * possible values of a parameter.
  *
