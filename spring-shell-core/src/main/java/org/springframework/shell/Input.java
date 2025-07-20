@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * 代表Shell的输入缓冲区。
  * Represents the input buffer to the shell.
  *
  * @author Eric Bottard
@@ -30,11 +31,14 @@ public interface Input {
 	Input EMPTY = () -> "";
 
 	/**
+	 * 返回用户输入的输入。
 	 * Return the input as entered by the user.
 	 */
 	String rawText();
 
 	/**
+	 * 根据解析规则拆分原始输入（例如，将readInput的引号部分作为单个“word”处理），以解析后的“words”列表的形式返回输入。
+	 *
 	 * Return the input as a list of parsed "words", having split the raw input according
 	 * to parsing rules (for example, handling quoted portions of the readInput as a single
 	 * "word")

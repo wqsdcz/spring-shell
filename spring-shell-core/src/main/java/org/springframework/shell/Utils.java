@@ -39,6 +39,7 @@ import org.springframework.core.MethodParameter;
 import org.springframework.shell.command.CommandRegistration;
 
 /**
+ * 一些文本实用程序。
  * Some text utilities.
  *
  * @author Eric Bottard

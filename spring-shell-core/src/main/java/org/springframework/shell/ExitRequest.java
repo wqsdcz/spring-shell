@@ -17,6 +17,7 @@
 package org.springframework.shell;
 
 /**
+ * 当抛出并捕获此异常时，将要求shell优雅地关闭。
  * This exception, when thrown and caught, will ask the shell to gracefully shutdown.
  *
  * @author Eric Bottard

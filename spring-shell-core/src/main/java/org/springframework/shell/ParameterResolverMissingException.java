@@ -18,6 +18,8 @@ package org.springframework.shell;
 import org.springframework.core.MethodParameter;
 
 /**
+ * 在解析操作期间没有为参数找到对应的ParameterResolver时，抛出。
+ *
  * Thrown when no ParameterResolver is found for a parameter during a resolve
  * operation.
  *

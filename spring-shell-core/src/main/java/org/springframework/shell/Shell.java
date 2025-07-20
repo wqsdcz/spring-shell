@@ -53,6 +53,7 @@ import org.springframework.shell.exit.ExitCodeMappings;
 import org.springframework.util.StringUtils;
 
 /**
+ * 实现shell循环的主类。
  * Main class implementing a shell loop.
  *
  * @author Eric Bottard
@@ -130,6 +131,11 @@ public class Shell {
 	}
 
 	/**
+	 * 主程序循环：获取输入，尝试将其与命令匹配并求值。重复此操作，直到{@link ResultHandler}导致进程退出或没有输入。
+	 * <p>
+	 * 此方法具有公共可见性，因此可以由实际命令调用
+	 * (<em>e.g.</em>  {@literal script} 命令).
+	 * </p>
 	 * The main program loop: acquire input, try to match it to a command and evaluate. Repeat
 	 * until a {@link ResultHandler} causes the process to exit or there is no input.
 	 * <p>

@@ -19,6 +19,7 @@ import org.springframework.boot.ApplicationRunner;
 
 /**
  * Marker interface for a main spring shell {@link ApplicationRunner}.
+ * 主 spring shell {@link ApplicationRunner }的标记接口。
  *
  * @author Janne Valkealahti
  */

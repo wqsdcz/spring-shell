@@ -25,6 +25,10 @@ import org.springframework.shell.DefaultShellApplicationRunner;
 import org.springframework.shell.ShellApplicationRunner;
 import org.springframework.shell.ShellRunner;
 
+/**
+ * @AutoConfiguration  用于标记自动配置类
+ * @EnableConfigurationProperties(SpringShellProperties.class) 读取属性配置，注入到：SpringShellProperties 对象中
+ */
 @AutoConfiguration
 @EnableConfigurationProperties(SpringShellProperties.class)
 public class ApplicationRunnerAutoConfiguration {

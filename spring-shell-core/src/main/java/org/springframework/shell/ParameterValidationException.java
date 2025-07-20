@@ -20,6 +20,7 @@ import java.util.Set;
 import jakarta.validation.ConstraintViolation;
 
 /**
+ * 当一个或多个参数不符合 Bean 验证约束 时，抛出此异常。
  * Thrown when one or more parameters fail bean validation constraints.
  *
  * @author Eric Bottard

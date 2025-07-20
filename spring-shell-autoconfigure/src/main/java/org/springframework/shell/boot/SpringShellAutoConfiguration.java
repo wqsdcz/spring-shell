@@ -39,6 +39,8 @@ import org.springframework.shell.result.GenericResultHandlerService;
 import org.springframework.shell.result.ResultHandlerConfig;
 
 /**
+ *
+ * 创建 用于运行Shell 的 支持bean
  * Creates supporting beans for running the Shell
  */
 @AutoConfiguration

@@ -19,6 +19,7 @@ package org.springframework.shell;
 import org.springframework.util.Assert;
 
 /**
+ * 指示命令当前是否可用。当不可用时，会提供一个原因（reason字段会有值）。
  * Indicates whether or not a command is currently available. When not available, provides
  * a reason.
  *

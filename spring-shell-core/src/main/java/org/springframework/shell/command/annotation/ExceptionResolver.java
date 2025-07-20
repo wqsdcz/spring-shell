@@ -24,6 +24,7 @@ import java.lang.annotation.Target;
 import org.springframework.aot.hint.annotation.Reflective;
 
 /**
+ *  注释，用于处理特定命令类和/或其方法中的异常。
  * Annotation for handling exceptions in specific command classes and/or its methods.
  *
  * @author Janne Valkealahti
@@ -35,6 +36,8 @@ import org.springframework.aot.hint.annotation.Reflective;
 public @interface ExceptionResolver {
 
 	/**
+	 * 由带注释的方法处理的异常。如果为空，将默认为方法参数列表中列出的任何异常。
+	 *
 	 * Exceptions handled by the annotated method. If empty, will default to any
 	 * exceptions listed in the method argument list.
 	 *

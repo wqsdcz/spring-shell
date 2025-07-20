@@ -24,6 +24,7 @@ import org.springframework.shell.command.CommandOption;
 import org.springframework.shell.command.CommandRegistration;
 
 /**
+ * 表示触发完成时的缓冲区上下文。
  * Represents the buffer context in which completion was triggered.
  *
  * @author Eric Bottard

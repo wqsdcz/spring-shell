@@ -16,6 +16,8 @@
 package org.springframework.shell;
 
 /**
+ * 表示一个命令存在，但当前不可被调用。
+ *
  * Indicates that a command exists but is currently not invokable.
  *
  * @author Eric Bottard

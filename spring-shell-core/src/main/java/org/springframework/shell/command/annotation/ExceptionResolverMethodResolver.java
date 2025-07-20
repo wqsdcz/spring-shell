@@ -36,10 +36,14 @@ import org.springframework.util.ReflectionUtils.MethodFilter;
  */
 public class ExceptionResolverMethodResolver {
 
+	// 用于过滤出添加了@ExceptionResolver注解的方法的过滤器
 	private static final MethodFilter EXCEPTION_HANDLER_METHODS = method ->
 			AnnotatedElementUtils.hasAnnotation(method, ExceptionResolver.class);
+	// 不匹配异常的处理器
 	private static final Method NO_MATCHING_EXCEPTION_HANDLER_METHOD;
+	// 已映射的方法
 	private final Map<Class<? extends Throwable>, Method> mappedMethods = new HashMap<>(16);
+	// 异常查询缓存
 	private final Map<Class<? extends Throwable>, Method> exceptionLookupCache = new ConcurrentReferenceHashMap<>(16);
 
 	static {
@@ -53,11 +57,14 @@ public class ExceptionResolverMethodResolver {
 	}
 
 	/**
+	 * 在给定类型中查找{@link ExceptionResolver}方法的构造函数。
+	 *
 	 * A constructor that finds {@link ExceptionResolver} methods in the given type.
 	 *
 	 * @param handlerType the type to introspect
 	 */
 	public ExceptionResolverMethodResolver(Class<?> handlerType) {
+		// 遍历 handlerType 中，添加了@ExceptionResolver注解的方法
 		for (Method method : MethodIntrospector.selectMethods(handlerType, EXCEPTION_HANDLER_METHODS)) {
 			for (Class<? extends Throwable> exceptionType : detectExceptionMappings(method)) {
 				addExceptionMapping(exceptionType, method);

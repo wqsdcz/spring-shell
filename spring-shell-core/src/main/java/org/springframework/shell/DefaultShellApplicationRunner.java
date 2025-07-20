@@ -27,6 +27,8 @@ import org.springframework.core.annotation.AnnotationAwareOrderComparator;
 import org.springframework.core.annotation.Order;
 
 /**
+ * 默认的{@link ShellApplicationRunner}，负责查找顺序中第一个能够处理shell命令的{@link ShellRunner}。
+ *
  * Default {@link ShellApplicationRunner} which dispatches to the first ordered {@link ShellRunner} able to handle
  * the shell.
  *

@@ -25,6 +25,7 @@ import org.springframework.aot.hint.annotation.Reflective;
 import org.springframework.core.annotation.AliasFor;
 
 /**
+ * 定义退出码。通常与 {@link ExceptionResolver} 一起使用。
  * Defines exit code. Typically used with {@link ExceptionResolver}.
  *
  * @author Janne Valkealahti
@@ -36,6 +37,7 @@ import org.springframework.core.annotation.AliasFor;
 public @interface ExitCode {
 
 	/**
+	 * 退出码的值
 	 * Exit code value.
 	 *
 	 * @return exit code
@@ -45,6 +47,7 @@ public @interface ExitCode {
 	int value() default 0;
 
 	/**
+	 * 退出码的值
 	 * Exit code value.
 	 *
 	 * @return exit code

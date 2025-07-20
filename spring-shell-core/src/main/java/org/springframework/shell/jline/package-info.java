@@ -15,6 +15,8 @@
  */
 
 /**
+ * 包含 利用 JLine库 连接到 Spring Shell REPL 的类。
+ *
  * Contains classes that leverage the JLine library to hook into the Spring Shell REPL.
  *
  * @author Eric Bottard

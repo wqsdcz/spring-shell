@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.function.Function;
 
 /**
+ * 代表一个命令中的退出码
  * Interface representing an exit code in a command.
  *
  * @author Janne Valkealahti
@@ -27,6 +28,7 @@ import java.util.function.Function;
 public interface CommandExitCode {
 
 	/**
+	 * 获取 异常 与退出码 的 函数映射。
 	 * Gets a function mappings from exceptions to exit codes.
 	 *
 	 * @return function mappings

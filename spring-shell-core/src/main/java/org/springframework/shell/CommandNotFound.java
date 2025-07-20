@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * 当没有命令可以映射到用户输入时，由{@link ResultHandler}处理的结果
+ *
  * A result to be handled by the {@link ResultHandler} when no command could be mapped to user input
  */
 public class CommandNotFound extends RuntimeException {

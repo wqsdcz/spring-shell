@@ -19,6 +19,7 @@ import org.springframework.core.convert.TypeDescriptor;
 import org.springframework.lang.Nullable;
 
 /**
+ * 用于结果处理的服务接口
  * A service interface for result handling.
  *
  * @author Janne Valkealahti

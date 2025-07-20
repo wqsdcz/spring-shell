@@ -24,6 +24,7 @@ import org.springframework.util.StringUtils;
 public interface Command {
 
 	/**
+	 * 封装有关shell命令的帮助元数据。
 	 * Encapsulates help metadata about a shell command.
 	 *
 	 * @author Eric Bottard

@@ -38,6 +38,7 @@ import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 
 /**
+ * 表示一个命令的注册端口
  * Interface defining a command registration endpoint.
  *
  * @author Janne Valkealahti

@@ -18,6 +18,7 @@ package org.springframework.shell;
 import org.springframework.boot.ApplicationArguments;
 
 /**
+ * shell运行程序接口。
  * Interface for shell runners.
  *
  * @author Janne Valkealahti
@@ -25,6 +26,8 @@ import org.springframework.boot.ApplicationArguments;
 public interface ShellRunner {
 
 	/**
+	 * 检查一个特定的shell运行程序是否可以执行。
+	 *
 	 * Checks if a particular shell runner can execute.
 	 *
 	 * @param args the application arguments
@@ -33,6 +36,7 @@ public interface ShellRunner {
 	boolean canRun(ApplicationArguments args);
 
 	/**
+	 * 执行应用程序。
 	 * Execute application.
 	 *
 	 * @param args the application argumets
