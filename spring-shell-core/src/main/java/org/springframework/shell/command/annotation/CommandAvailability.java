@@ -25,6 +25,33 @@ import org.springframework.shell.Availability;
 
 /**
  * Annotation marking a method having {@link Availability}.
+ * <p>翻译：标注具有{@link Availability}的命令方法的注释。示例如下：</p>
+ * <pre class="code">
+ * &#64;Command
+ * class MyCommands {
+ *
+ * 	private boolean connected;
+ *
+ * 	&#64;Command(command = "connect")
+ * 	public void connect(String user, String password) {
+ * 		connected = true;
+ * 	}
+ *
+ *
+ * 	&#64;Command(command = "download")
+ *	&#64;CommandAvailability(provider = "downloadAvailability")
+ * 	public void download() {
+ * 		// do something
+ * 	}
+ *
+ * 	&#64;Bean
+ * 	public AvailabilityProvider downloadAvailability() {
+ * 		return () -> connected
+ * 			? Availability.available()
+ * 			: Availability.unavailable("you are not connected");
+ * 	}
+ * }
+ * </pre>
  *
  * @author Janne Valkealahti
  */
@@ -35,6 +62,8 @@ public @interface CommandAvailability {
 
 	/**
 	 * Names of provider beans for {@link Availability}.
+	 * <p>翻译：{@link Availability}的提供者bean名称。AvailabilityProvider类型</p>
+	 *
 	 *
 	 * @return names of supplier beans
 	 */

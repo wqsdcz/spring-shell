@@ -22,6 +22,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
+ * 标记在特定的命令类 或
+ * 用于在特定命令类及其方法中处理异常的注解。
  * Annotation for handling exceptions in specific command classes and/or its methods.
  *
  * @author Janne Valkealahti
@@ -32,8 +34,10 @@ import java.lang.annotation.Target;
 public @interface ExceptionResolver {
 
 	/**
+	 *
 	 * Exceptions handled by the annotated method. If empty, will default to any
 	 * exceptions listed in the method argument list.
+	 * <p>翻译：由被标记的方法处理的异常集合。如果为空，那么默认为方法参数列表中列出的异常。</p>
 	 *
 	 * @return Exceptions handled by annotated method
 	 */

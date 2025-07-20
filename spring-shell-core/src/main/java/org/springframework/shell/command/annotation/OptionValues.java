@@ -26,6 +26,7 @@ import org.springframework.shell.completion.CompletionProvider;
 /**
  * Annotation marking a method parameter which completion proposals should be
  * used.
+ * <p>翻译：用于标记方法参数。这个方法参数应该使用补全建议。</p>
  *
  * @author Janne Valkealahti
  */
@@ -36,6 +37,7 @@ public @interface OptionValues {
 
 	/**
 	 * Names of beans for {@link CompletionProvider}.
+	 * <p>翻译：CompletionProvider bean的名称</p>
 	 *
 	 * @return names of CompletionProvider beans
 	 */

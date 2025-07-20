@@ -18,6 +18,7 @@ package org.springframework.shell;
 import org.springframework.boot.ApplicationRunner;
 
 /**
+ * 标记接口，spring shell的主{@link ApplicationRunner}。
  * Marker interface for a main spring shell {@link ApplicationRunner}.
  *
  * @author Janne Valkealahti

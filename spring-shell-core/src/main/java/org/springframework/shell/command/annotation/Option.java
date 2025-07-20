@@ -24,8 +24,9 @@ import java.lang.annotation.Target;
 import org.springframework.shell.command.CommandRegistration.OptionArity;
 
 /**
- * Annotation marking a method parameter to be a candicate for an option.
- *
+ * Annotation marking a method parameter to be a candidate for an option.
+ * <p>翻译：用于标记方法参数。被标记的方法参数将作为一个命令选项的一个候选。</p>
+ * <>参数属性：参数的长名称、参数的短名称、是否必选、参数的默认值、参数的描述、参数的标签、参数的元数</>
  * @author Janne Valkealahti
  */
 @Retention(RetentionPolicy.RUNTIME)
@@ -36,6 +37,7 @@ public @interface Option {
 	/**
 	 * Long names of an option. There can be multiple names where first is primary
 	 * one and other are aliases.
+	 * <p>翻译：一个选项的长名称。</p>
 	 *
 	 * @return Option long names, defaults to empty.
 	 */
@@ -44,6 +46,7 @@ public @interface Option {
 	/**
 	 * Short names of an option. There can be multiple names where first is primary
 	 * one and other are aliases.
+	 * <p>翻译：一个选项的短名称。</p>
 	 *
 	 * @return Option short names, defaults to empty.
 	 */
@@ -51,6 +54,7 @@ public @interface Option {
 
 	/**
 	 * Mark option required.
+	 * <p>翻译：标记选项为必需选项。</p>
 	 *
 	 * @return true if option is required, defaults to false.
 	 */
@@ -58,6 +62,7 @@ public @interface Option {
 
 	/**
 	 * Define option default value.
+	 * <p>翻译：定义选项的默认值。</p>
 	 *
 	 * @return default value
 	 */
@@ -65,6 +70,7 @@ public @interface Option {
 
 	/**
 	 * Return a short description of the option.
+	 * <p>翻译：返回选项的简短描述。</p>
 	 *
 	 * @return description of the option
 	 */
@@ -72,6 +78,7 @@ public @interface Option {
 
 	/**
 	 * Return a label of the option.
+	 * <p>翻译：返回选项的标签。</p>
 	 *
 	 * @return label of the option
 	 */
@@ -79,6 +86,7 @@ public @interface Option {
 
 	/**
 	 * Define option arity.
+	 * <p>翻译：定义选项的元数（选项中参数的数量）。</p>
 	 *
 	 * @return option arity
 	 * @see #arityMin()
@@ -90,6 +98,7 @@ public @interface Option {
 	 * Define option arity min. If Defined non-negative will be used instead of
 	 * {@link #arity()}. If {@code arityMax} is not set non-negative it is set to
 	 * same as this.
+	 * <p>翻译：定义选项的元数的最小值。如果定义为非负数将被使用，而不是{@link #arity()}。如果{@code arityMax}未设置为非负，则设置为与此属性相同。</p>
 	 *
 	 * @return option arity min
 	 * @see #arity()
@@ -100,6 +109,7 @@ public @interface Option {
 	 * Define option arity max. If Defined non-negative will be used instead of
 	 * {@link #arity()}. If {@code arityMin} is not set non-negative it is set to
 	 * zero.
+	 * <p>翻译：定义选项的元数的最大值。如果定义非负数否定将被使用，而不是{@link #arity()}。如果{@code arityMin}未设置为非负，则将其设置为零。</p>
 	 *
 	 * @return option arity max
 	 * @see #arity()

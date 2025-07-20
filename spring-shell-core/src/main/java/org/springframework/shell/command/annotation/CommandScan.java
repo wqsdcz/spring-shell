@@ -31,6 +31,8 @@ import org.springframework.shell.command.annotation.support.CommandScanRegistrar
  * alias {@link #value()} may be specified to define specific packages to scan.
  * If specific packages are not defined scanning will occur from the package of
  * the class with this annotation.
+ * <p>翻译：配置对 标记了{@link Command @Comamnd}的类 的包扫描。{@link #basePackageClasses()}、 {@link #basePackages()}、{@link #value()}中任意一个
+ * 都可以定义扫描的包。如果没有定义扫描的包，那么就扫描标记了这个注解的类所在的包。</p>
  *
  * @author Janne Valkealahti
  */

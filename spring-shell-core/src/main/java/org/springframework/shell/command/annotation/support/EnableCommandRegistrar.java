@@ -27,6 +27,7 @@ import org.springframework.shell.command.annotation.EnableCommand;
 
 /**
  * {@link ImportBeanDefinitionRegistrar} for {@link EnableCommand @EnableCommands}.
+ * <p>翻译：用于{@link EnableCommand @EnableCommands} 的 {@link ImportBeanDefinitionRegistrar}</p>
  *
  * @author Janne Valkealahti
  */

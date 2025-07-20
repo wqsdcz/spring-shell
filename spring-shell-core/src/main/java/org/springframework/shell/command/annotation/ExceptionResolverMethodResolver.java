@@ -31,6 +31,7 @@ import org.springframework.util.ConcurrentReferenceHashMap;
 import org.springframework.util.ReflectionUtils.MethodFilter;
 
 /**
+ * 负责解析方法中的【@ExceptionResolver注解】来定位【异常处理逻辑】
  *
  * @author Janne Valkealahti
  */
@@ -44,6 +45,7 @@ public class ExceptionResolverMethodResolver {
 
 	static {
 		try {
+
 			NO_MATCHING_EXCEPTION_HANDLER_METHOD =
 					ExceptionResolverMethodResolver.class.getDeclaredMethod("noMatchingExceptionHandler");
 		}
@@ -158,6 +160,7 @@ public class ExceptionResolverMethodResolver {
 	/**
 	 * Return the {@link Method} mapped to the given exception type, or
 	 * {@link #NO_MATCHING_EXCEPTION_HANDLER_METHOD} if none.
+	 * <p>翻译：返回映射到给定异常类型的 {@link Method}。如果没有映射到，则返回{@link #NO_MATCHING_EXCEPTION_HANDLER_METHOD}</p>
 	 */
 	private Method getMappedMethod(Class<? extends Throwable> exceptionType) {
 		List<Class<? extends Throwable>> matches = new ArrayList<>();

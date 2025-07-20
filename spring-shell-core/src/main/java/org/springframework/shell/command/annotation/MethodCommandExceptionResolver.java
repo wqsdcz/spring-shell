@@ -33,6 +33,10 @@ import org.springframework.shell.command.invocation.InvocableShellMethod;
 import org.springframework.shell.command.invocation.ShellMethodArgumentResolverComposite;
 import org.springframework.util.Assert;
 
+/**
+ * 负责处理【指定Bean】中【命令方法】中抛出的异常。【处理异常的逻辑】通过解析【@ExceptionResolver注解】来定位。
+ * 由【ExceptionResolverMethodResolver】负责解析【指定Bean】中的【@ExceptionResolver注解】来获得 【处理异常的逻辑】。
+ */
 public class MethodCommandExceptionResolver implements CommandExceptionResolver {
 
 	private final static Logger log = LoggerFactory.getLogger(MethodCommandExceptionResolver.class);
@@ -52,6 +56,7 @@ public class MethodCommandExceptionResolver implements CommandExceptionResolver 
 	@Override
 	public CommandHandlingResult resolve(Exception ex) {
 		try {
+			// @ExceptionResolver方法 的 解析器
 			ExceptionResolverMethodResolver resolver = new ExceptionResolverMethodResolver(bean.getClass());
 			Method exceptionResolverMethod = resolver.resolveMethodByThrowable(ex);
 			if (exceptionResolverMethod == null) {
@@ -81,6 +86,7 @@ public class MethodCommandExceptionResolver implements CommandExceptionResolver 
 			boolean isVoid = void.class.isAssignableFrom(parameterType);
 			Object invoke = invocable.invoke(messageBuilder.build(), arguments);
 
+			// 获取在方法中@ExitCode的退出码。
 			Integer ecFromAnn = null;
 			ExitCode ecAnn = AnnotationUtils.findAnnotation(exceptionResolverMethod, ExitCode.class);
 			if (ecAnn != null && ecAnn.code() > 0) {

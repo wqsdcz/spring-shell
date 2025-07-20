@@ -25,7 +25,9 @@ import org.springframework.aot.hint.annotation.Reflective;
 import org.springframework.shell.context.InteractionMode;
 
 /**
- * Annotation marking a method to be a candicate for a shell command target.
+ * Annotation marking a method to be a candidate for a shell command target.
+ * <p>翻译：用于标记方法。被标记的方法将作为一个shell命令目标的一个候选。</p>
+ * <p>命令的属性：命令名称、命令别名、所属命令组、命令的描述、是否隐藏、命令支持的交互方法</p>
  *
  * @author Janne Valkealahti
  */
@@ -38,6 +40,8 @@ public @interface Command {
 	/**
 	 * Define command as an array. Given that command should be
 	 * {@code command1 sub1} it can be defined as:
+	 * <p>翻译：以数组的形式定义命令。鉴于命令应该是
+	 * {@code command1 sub1}它可以定义为：</p>
 	 *
 	 * <pre class="code">
 	 * command = { "command1", "sub1" }
@@ -45,6 +49,7 @@ public @interface Command {
 	 * </pre>
 	 *
 	 * Values are split and trimmed meaning spaces doesn't matter.
+	 * <p>翻译：这个参数的值会被分割和修剪，这意味着空格是不重要的。</p>
 	 *
 	 * <p>
 	 * <b>Supported at the type level as well as at the method level!</b>
@@ -67,6 +72,8 @@ public @interface Command {
 	/**
 	 * Define alias as an array. Given that alias should be
 	 * {@code alias1 sub1} it can be defined as:
+	 * <p>翻译：以数组的形式定义别名。鉴于别名应该是
+	 * {@code command1 sub1}它可以定义为：</p>
 	 *
 	 * <pre class="code">
 	 * alias = { "alias1", "sub1" }
@@ -95,6 +102,7 @@ public @interface Command {
 
 	/**
 	 * Define a command group.
+	 * <p>翻译：定义一个命令组</p>
 	 *
 	 * <p>
 	 * <b>Supported at the type level as well as at the method level!</b>
@@ -107,6 +115,7 @@ public @interface Command {
 
 	/**
 	 * Define a command description.
+	 * <p>翻译：定义一个对 <b>命令</b> 的描述。</p>
 	 *
 	 * <p>
 	 * <b>Supported at the type level as well as at the method level!</b>

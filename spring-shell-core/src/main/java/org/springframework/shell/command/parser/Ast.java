@@ -22,6 +22,7 @@ import java.util.List;
  * Interface to generate abstract syntax tree from tokens. Generic language
  * parser usually contains lexing and parsing where this {@code Ast} represents
  * the latter parsing side.
+ * <p>翻译：接口，用于令牌生成【抽象语法树Ast】。通用语言解析器通常含有词法分析和解析，其中{@code Ast}表示后面的解析端。</p>
  *
  * Parsing looks tokens and combines those together into nodes and we get
  * closer to understand commands, its options and arguments whether those

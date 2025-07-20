@@ -27,6 +27,7 @@ import org.springframework.shell.command.annotation.support.EnableCommandRegistr
 /**
  * Enable support for {@link Command @Command} annotated classes.
  * {@code @Command} classes can be registered directly on this annotation.
+ * <p>翻译：启用对{@link Command @Command}注解类的支持。在这个注解上，可以直接注册标记了{@code @Command}的类</p>
  *
  * @author Janne Valkealahti
  */
@@ -37,7 +38,8 @@ import org.springframework.shell.command.annotation.support.EnableCommandRegistr
 public @interface EnableCommand {
 
 	/**
-	 * Defines candicate classes for shell commands.
+	 * Defines candidate classes for shell commands.
+	 * <p>翻译：定义 shell命令 的候选类。</p>
 	 *
 	 * @return candidate classes for shell commands
 	 */

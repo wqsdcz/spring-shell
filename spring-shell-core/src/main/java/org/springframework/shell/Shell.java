@@ -141,6 +141,7 @@ public class Shell {
 	public void run(InputProvider inputProvider) throws Exception {
 		Object result = null;
 		while (!(result instanceof ExitRequest)) { // Handles ExitRequest thrown from Quit command
+			// 从【输入提供者】中读取【输入的内容】
 			Input input;
 			try {
 				input = inputProvider.readInput();

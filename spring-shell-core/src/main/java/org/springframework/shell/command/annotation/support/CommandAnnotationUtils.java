@@ -26,6 +26,7 @@ import org.springframework.shell.context.InteractionMode;
 import org.springframework.util.StringUtils;
 
 /**
+ *
  * Utilities to merge {@link Command} annotations using opinionated logic. In
  * this class {@code left} is meant for annotation on a class level and
  * {@code right} annotation on a method level. Class level is meant to provide
