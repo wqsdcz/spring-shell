@@ -30,6 +30,7 @@ import org.springframework.shell.command.parser.CommandModel.CommandInfo;
 import org.springframework.shell.command.parser.ParserConfig.Feature;
 
 /**
+ * Lexer：词法分析程序
  * Interface to tokenize arguments into tokens. Generic language parser usually
  * contains lexing and parsing where this {@code Lexer} represents the former
  * lexing side.
